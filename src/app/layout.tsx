@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,50 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className="bg-orange-100">
+        <header className="bg-orange-100 p-4 ">
+          <nav className="flex justify-between mx-auto container items-center">
+            <h1 className="text-4xl">Kiwi</h1>
+            <div className="flex  gap-12">
+              <div className="space-x-12 font-medium flex items-center">
+                <Link
+                  href={"/product"}
+                  className="hover:text-slate-600 transition-all duration-300 "
+                >
+                  Product
+                </Link>
+                <Link
+                  href={"/solutions"}
+                  className="hover:text-slate-600 transition-all duration-300"
+                >
+                  Solutions
+                </Link>
+                <Link
+                  href={"/pricing"}
+                  className="hover:text-slate-600 transition-all duration-300"
+                >
+                  Pricing
+                </Link>
+                <Link
+                  href={"/resources"}
+                  className="hover:text-slate-600 transition-all duration-300"
+                >
+                  Resources
+                </Link>
+              </div>
+              <div className="space-x-4 font-medium">
+                <button className="border border-slate-500 hover:bg-neutral-200/30 transition-all duration-300 rounded-full px-4 py-2">
+                  Sign in
+                </button>
+                <button className="bg-gray-900 hover:bg-gray-800 transition-all duration-300 text-white rounded-full px-4 py-2">
+                  Start free
+                </button>
+              </div>
+            </div>
+          </nav>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
